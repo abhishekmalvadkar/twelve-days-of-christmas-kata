@@ -106,28 +106,6 @@ Each verse represents a day of Christmas and follows a clear set of rules.
 
 ---
 
-## Suggested TDD Approach
-
-1. Start with **only the first day**
-2. Write a failing test
-3. Make the test pass with the simplest code possible
-4. Add the next day
-5. Refactor after each green test
-6. Avoid copy-pasting verses
-7. Let data structures and loops emerge naturally
-
----
-
-## Learning Objectives
-
-This kata helps practice:
-
-- Behavior-Driven Development (BDD)
-- Test-Driven Development (TDD)
-- Incremental design
-- Refactoring without fear
-- Working with collections and ordering rules
-
 ## Resources
 
 The lyrics can be found [Here](https://www.lyricsmode.com/lyrics/c/christmas_carols/the_twelve_days_of_christmas.html)
