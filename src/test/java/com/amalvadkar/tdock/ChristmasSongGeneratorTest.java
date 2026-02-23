@@ -1,0 +1,19 @@
+package com.amalvadkar.tdock;
+
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class ChristmasSongGeneratorTest {
+    @Test
+    void should_generate_christmas_song_for_first_day() {
+        ChristmasSongGenerator songGenerator = new ChristmasSongGenerator();
+
+        String firstDaySong = songGenerator.generate(ChristmasDay.FIRST);
+
+        assertThat(firstDaySong).isEqualTo("""
+                On the first day of Christmas
+                My true love gave to me:
+                A partridge in a pear tree.""");
+    }
+}
