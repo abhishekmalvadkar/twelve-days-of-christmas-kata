@@ -8,4 +8,8 @@ public enum ChristmasDay {
     public boolean isSecond() {
         return SECOND == this;
     }
+
+    public boolean isThird() {
+        return THIRD == this;
+    }
 }
