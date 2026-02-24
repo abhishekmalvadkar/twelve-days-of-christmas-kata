@@ -2,7 +2,7 @@ Feature:
     Generate Christmas Song
 
 Domain Based BDD
-Scenario:
+Scenario 1:
     Singing the song on the first day
 
 Given
@@ -29,3 +29,36 @@ Then
     "On the first day of Christmas
     My true love gave to me:
     A partridge in a pear tree."
+
+==================================================================
+
+Domain Based BDD
+Scenario 2:
+    Singing the song on the second day
+
+Given
+    it is the second day of Christmas
+When
+    I sing the Christmas song
+Then
+    the verse should be:
+    On the second day of Christmas
+    My true love gave to me:
+    Two turtle doves and
+    A partridge in a pear tree.
+
+Technical Based BDD
+Scenario:
+    Singing the song on the first day
+
+Given
+    ChristmasSongGenerator class
+When
+    I call generate() method with below parameters
+    1) ChristmasDay.SECOND enum
+Then
+    It should return below value as string
+    "On the second day of Christmas
+     My true love gave to me:
+     Two turtle doves and
+     A partridge in a pear tree."

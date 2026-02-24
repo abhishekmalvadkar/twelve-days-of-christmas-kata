@@ -16,4 +16,17 @@ public class ChristmasSongGeneratorTest {
                 My true love gave to me:
                 A partridge in a pear tree.""");
     }
+
+    @Test
+    void should_generate_christmas_song_for_second_day() {
+        ChristmasSongGenerator songGenerator = new ChristmasSongGenerator();
+
+        String secondDaySong = songGenerator.generate(ChristmasDay.SECOND);
+
+        assertThat(secondDaySong).isEqualTo("""
+                On the second day of Christmas
+                My true love gave to me:
+                Two turtle doves and
+                A partridge in a pear tree.""");
+    }
 }
