@@ -29,4 +29,18 @@ public class ChristmasSongGeneratorTest {
                 Two turtle doves and
                 A partridge in a pear tree.""");
     }
+
+    @Test
+    void should_generate_christmas_song_for_third_day() {
+        ChristmasSongGenerator songGenerator = new ChristmasSongGenerator();
+
+        String thirdDaySong = songGenerator.generate(ChristmasDay.THIRD);
+
+        assertThat(thirdDaySong).isEqualTo("""
+                On the third day of Christmas
+                My true love gave to me:
+                Three french hens
+                Two turtle doves and
+                A partridge in a pear tree.""");
+    }
 }
