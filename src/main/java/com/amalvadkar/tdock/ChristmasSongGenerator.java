@@ -3,7 +3,7 @@ package com.amalvadkar.tdock;
 public class ChristmasSongGenerator {
 
     public String generate(ChristmasDay christmasDay) {
-        if (ChristmasDay.SECOND == christmasDay) {
+        if (christmasDay.isSecond()) {
             return """
                     On the second day of Christmas
                     My true love gave to me:
@@ -15,4 +15,5 @@ public class ChristmasSongGenerator {
                 My true love gave to me:
                 A partridge in a pear tree.""";
     }
+
 }
