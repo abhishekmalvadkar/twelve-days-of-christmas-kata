@@ -1,5 +1,7 @@
 # Twelve Days of Christmas Kata
 
+[![CI with Qodana](https://github.com/abhishekmalvadkar/twelve-days-of-christmas-kata/actions/workflows/all-tests.yml/badge.svg)](https://github.com/abhishekmalvadkar/twelve-days-of-christmas-kata/actions/workflows/all-tests.yml)
+
 ## Overview
 
 This kata requires writing the smallest program that outputs the lyrics of the Christmas carol  
