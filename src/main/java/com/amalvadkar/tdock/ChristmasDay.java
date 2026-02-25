@@ -3,8 +3,10 @@ package com.amalvadkar.tdock;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Comparator;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.util.Comparator.comparing;
+import static java.util.stream.Collectors.joining;
 
 @RequiredArgsConstructor
 public enum ChristmasDay {
@@ -21,16 +23,11 @@ public enum ChristmasDay {
     ELEVENTH(11, "Eleven pipers piping"),
     TWELFTH(12, "Twelve drummers drumming");
 
+    public static final Comparator<ChristmasDay> REVERSED_DAY_COMPARATOR = comparing(ChristmasDay::dayNo).reversed();
+    public static final String LINE_BREAK = "\n";
+
     private final int dayNo;
     private final String gift;
-
-    public boolean isSecond() {
-        return SECOND == this;
-    }
-
-    public boolean isThird() {
-        return THIRD == this;
-    }
 
     public int dayNo() {
         return dayNo;
@@ -41,16 +38,26 @@ public enum ChristmasDay {
     }
 
     public String song(){
-        String openingLines = String.format("""
-                On the %s day of Christmas
-                My true love gave to me:""", name().toLowerCase());
-        String givenGiftsInDaysReversedOrder = Stream.of(ChristmasDay.values())
-                .filter(christmasDay -> christmasDay.dayNo <= dayNo)
-                .sorted(Comparator.comparing(ChristmasDay::dayNo).reversed())
-                .map(ChristmasDay::gift)
-                .collect(Collectors.joining("\n"));
         return String.format("""
                 %s
-                %s""", openingLines, givenGiftsInDaysReversedOrder);
+                %s""", openingLines(), givenGiftsInDaysReversedOrder());
+    }
+
+    private String givenGiftsInDaysReversedOrder() {
+        return Stream.of(ChristmasDay.values())
+                .filter(this::allPreviousDaysTillToday)
+                .sorted(REVERSED_DAY_COMPARATOR)
+                .map(ChristmasDay::gift)
+                .collect(joining(LINE_BREAK));
+    }
+
+    private boolean allPreviousDaysTillToday(ChristmasDay christmasDay) {
+        return christmasDay.dayNo <= dayNo;
+    }
+
+    private String openingLines() {
+        return String.format("""
+                On the %s day of Christmas
+                My true love gave to me:""", name().toLowerCase());
     }
 }

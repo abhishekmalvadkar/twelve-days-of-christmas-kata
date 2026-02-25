@@ -10,12 +10,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ChristmasSongGeneratorTest {
 
-    private final ChristmasSongGenerator songGenerator = new ChristmasSongGenerator();
-
     @ParameterizedTest
     @MethodSource("daysWithExpectedSongs")
-    void should_generate_christmas_song(ChristmasDay day, String expectedSong) {
-        String generatedSong = songGenerator.generate(day);
+    void should_generate_christmas_song(ChristmasDay christmasDay, String expectedSong) {
+        String generatedSong = christmasDay.song();
 
         assertThat(generatedSong).isEqualTo(expectedSong);
     }
